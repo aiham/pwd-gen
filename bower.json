@@ -1,0 +1,11 @@
+{
+  "name": "pwd-gen",
+  "description": "Password generator",
+  "version": "0.0.0",
+  "homepage": "http://apps.aiham.net/pwd-gen",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.x"
+  }
+}
