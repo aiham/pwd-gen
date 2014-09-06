@@ -49,17 +49,19 @@
         }
 
         $scope.passwords = [];
-        for (i = 0; i < $scope.passwordCount; i++) {
-          passwordLength = randomInt($scope.min, $scope.max);
-          password = '';
-          for (j = 0; j < passwordLength; j++) {
-            do {
-              passwordChar = options[randomInt(0, options.length - 1)];
-            } while ($scope.noRepeat && passwordChar === previousPasswordChar);
-            password += passwordChar;
-            previousPasswordChar = passwordChar;
+        if (options && options.length) {
+          for (i = 0; i < $scope.passwordCount; i++) {
+            passwordLength = randomInt($scope.min, $scope.max);
+            password = '';
+            for (j = 0; j < passwordLength; j++) {
+              do {
+                passwordChar = options[randomInt(0, options.length - 1)];
+              } while ($scope.noRepeat && passwordChar === previousPasswordChar);
+              password += passwordChar;
+              previousPasswordChar = passwordChar;
+            }
+            $scope.passwords.push(password);
           }
-          $scope.passwords.push(password);
         }
 
       };
