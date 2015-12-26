@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Password Generator</title>
+  <meta name="author" content="Aiham Hammami">
+  <meta name="description" content="Password generator">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    ul li pre {
+      padding: 1em;
+      background: silver;
+    }
+
+    ul li a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body ng-controller="MainCtrl">
+  <form ng-submit="generate()">
+    <div>
+      <input type="checkbox" ng-model="alphaLower" id="alphaLower">
+      <label for="alphaLower">a-z</label>
+    </div>
+    <div>
+      <input type="checkbox" ng-model="alphaUpper" id="alphaUpper">
+      <label for="alphaUpper">A-Z</label>
+    </div>
+    <div>
+      <input type="checkbox" ng-model="numbers" id="numbers">
+      <label for="numbers">0-9</label>
+    </div>
+    <div>
+      <input type="checkbox" ng-model="spaces" id="spaces">
+      <label for="spaces">Spaces</label>
+    </div>
+    <div>
+      <input type="checkbox" ng-model="hasSymbols" id="hasSymbols">
+      <label for="hasSymbols">Symbols</label>
+      <input type="text" ng-model="symbols" id="symbols" ng-disabled="!hasSymbols">
+    </div>
+    <div>
+      <input type="checkbox" ng-model="noRepeat" id="noRepeat">
+      <label for="noRepeat">No Repeat</label>
+    </div>
+    <div>
+      <label for="min">Min</label>
+      <input type="text" ng-model="min" id="min">
+    </div>
+    <div>
+      <label for="max">Max</label>
+      <input type="text" ng-model="max" id="max">
+    </div>
+    <div>
+      <label for="passwordCount">Password Count</label>
+      <input type="text" ng-model="passwordCount" id="passwordCount">
+    </div>
+    <input type="submit" value="Generate">
+  </form>
+  <ul>
+    <li ng-repeat="password in passwords track by $index">
+      <pre><a href ng-click="copy(password)">Copy</a> {{ password }}</pre>
+    </li>
+  </ul>
+  <script src="js/vendor/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
