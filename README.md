@@ -4,4 +4,4 @@ pwd-gen is a simple random password generator
 
 ## Demo
 
-http://apps.aiham.net/pwd-gen/
+http://aiham.github.io/pwd-gen
