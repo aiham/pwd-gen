@@ -26,6 +26,9 @@
 
         var options = '',
             password,
+            passwordCount = parseInt($scope.passwordCount, 10),
+            min = parseInt($scope.min, 10),
+            max = parseInt($scope.max, 10),
             passwordLength,
             passwordChar,
             previousPasswordChar,
@@ -50,8 +53,8 @@
 
         $scope.passwords = [];
         if (options && options.length) {
-          for (i = 0; i < $scope.passwordCount; i++) {
-            passwordLength = randomInt($scope.min, $scope.max);
+          for (i = 0; i < passwordCount; i++) {
+            passwordLength = randomInt(min, max);
             password = '';
             for (j = 0; j < passwordLength; j++) {
               do {
